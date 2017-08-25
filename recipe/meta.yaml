@@ -32,14 +32,13 @@ build:
 
 requirements:
   build:
-    - libtool        # [unix]
-    - cmake >=3.1
-    - zlib 1.2.*
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
-  run:
-    - zlib 1.2.*
+    - libtool        # [unix]
+    - cmake >=3.1
+  host:
+    - zlib
 
 # no explicit run deps.  zlib is one, and C/C++/Fortran runtimes are others, but these are taken care of
 #   with conda-build 3's run_exports in those packages.  They will be run reqs in the final package.  See

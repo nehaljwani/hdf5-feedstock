@@ -21,7 +21,7 @@ export LIBRARY_PATH="${PREFIX}/lib"
             --enable-unsupported \
             --with-ssl
 
-make -j "${CPU_COUNT}"
+make -j "${CPU_COUNT}" ${VERBOSE_AT}
 make check
 make install
 

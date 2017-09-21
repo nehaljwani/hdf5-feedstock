@@ -36,12 +36,13 @@ build:
 
 requirements:
   build:
-    - libtool        # [unix]
-    - cmake >=3.1
-    - zlib 1.2.*
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - jom                        # [win]
+    - libtool                    # [unix]
+    - cmake >=3.1
+    - zlib 1.2.*
   run:
     - zlib 1.2.*
 

@@ -2,7 +2,6 @@
 
 if [ "$(uname)" == "Darwin" ]; then
     export CXX="${CXX} -stdlib=libc++"
-    export LDFLAGS="${LDFLAGS} -Wl,-rpath,$PREFIX/lib"
 fi
 
 export LIBRARY_PATH="${PREFIX}/lib"
@@ -19,6 +18,8 @@ export LIBRARY_PATH="${PREFIX}/lib"
             --enable-threadsafe \
             --enable-build-mode=production \
             --enable-unsupported \
+            --enable-using-memchecker \
+            --enable-clear-file-buffers \
             --with-ssl
 
 make -j "${CPU_COUNT}" ${VERBOSE_AT}

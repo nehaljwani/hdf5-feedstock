@@ -5,7 +5,7 @@ cd build
 set HDF5_EXT_ZLIB=zlib.lib
 
 :: Configure step.
-cmake -G "NMake Makefiles" ^
+cmake -G "%CMAKE_GENERATOR%" ^
       -D CMAKE_BUILD_TYPE:STRING=RELEASE ^
       -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -D CMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% ^
@@ -20,9 +20,9 @@ cmake -G "NMake Makefiles" ^
 if errorlevel 1 exit 1
 
 :: Build C libraries and tools.
-jom
+cmake --build . --config RELEASE
 if errorlevel 1 exit 1
 
 :: Install step.
-jom install
+cmake --build . --config Release --target INSTALL
 if errorlevel 1 exit 1

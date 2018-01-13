@@ -30,6 +30,9 @@ build:
     - {{ pin_subpackage('hdf5', max_pin='x.x') }}
 
 requirements:
+  host:
+    - zlib
+
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -37,7 +40,6 @@ requirements:
     - jom                        # [win]
     - libtool                    # [unix]
     - cmake >=3.1
-    - zlib
 
 # no explicit run deps.  zlib is one, and C/C++/Fortran runtimes are others, but these are taken care of
 #   with conda-build 3's run_exports in those packages.  They will be run reqs in the final package.  See

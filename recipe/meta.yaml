@@ -18,6 +18,10 @@ source:
     - test_Makefile.in.patch
     # Disable shared Fortran API building on OSX
     - osx_configure.patch  # [osx]
+    # https://bugzilla.redhat.com/show_bug.cgi?id=1078173
+    # https://build.opensuse.org/package/view_file/home:rudi_m/hdf5/PPC64LE-Fix-long-double-handling.patch?expand=1
+    - PPC64LE-Fix-long-double-handling.patch
+    - ullong_force.diff
 
 build:
   number: 1
